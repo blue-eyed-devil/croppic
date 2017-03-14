@@ -300,7 +300,8 @@
 				});	
 
 			}else{					
-				that.cropControlRemoveCroppedImage.on('click',function(){ 
+				that.cropControlRemoveCroppedImage.on('click',function(e){
+					e.preventDefault();
 					that.croppedImg.remove();
 					$(this).hide();
 
@@ -493,7 +494,8 @@
 			});
 
 			that.cropControlReset = that.cropControlsCrop.find('.cropControlReset');
-			that.cropControlReset.on('click',function(){
+			that.cropControlReset.on('click',function(e){
+				e.preventDefault();
 				delete that.options['loadPicture'];
 				that.reset();
 			});				
