@@ -151,7 +151,7 @@
 			var that = this;
 
 			// CREATE UPLOAD IMG FORM
-            var formHtml = '<form class="' + that.id + '_imgUploadForm" style="visibility: hidden;">  <input type="file" name="img" id="' + that.id + '_imgUploadField">  </form>';
+            var formHtml = '<form class="' + that.id + '_imgUploadForm" style="visibility: hidden;">  <input type="file" name="img" id="' + that.id + '_imgUploadField" accept="image/*">  </form>';
 			that.outputDiv.append(formHtml);
 			that.form = that.outputDiv.find('.'+that.id+'_imgUploadForm');
 
@@ -291,7 +291,7 @@
 
 				var img =$('<img src="'+ that.options.loadPicture +'">');
 				that.obj.append(img);
-				img.load(function(){
+				img.on('load', function(){
 					that.imgInitW = that.imgW = this.width;
 					that.imgInitH = that.imgH = this.height;
 					that.initCropper();
@@ -338,7 +338,7 @@
 
 				that.obj.append(img);
 
-				img.load(function(){
+				img.on('load',function(){
 					that.initCropper();
 					that.hideLoader();
 					if(that.options.onAfterImgUpload){
